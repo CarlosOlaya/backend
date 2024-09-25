@@ -11,8 +11,21 @@ import usersRoutes from '@routes/users.routes';
 
 const app = express();
 
+// Configurar Content Security Policy en Helmet
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        imgSrc: ["'self'", 'https://res.cloudinary.com', 'data:'],
+        scriptSrc: ["'self'"],
+        // Puedes agregar más directivas según sea necesario
+      },
+    },
+  })
+);
+
 app.use(cors());
-app.use(helmet());
 app.use(express.json());
 app.use(fileUpload({ useTempFiles: true }));
 app.use(express.urlencoded({ extended: true }));
