@@ -54,7 +54,6 @@ app.get('/api/proxy-image', async (req, res) => {
       res.set('Content-Type', contentType);  // Asegura que se envíe el tipo de contenido correcto
       res.send(response.data);
     } catch (error) {
-      console.error('Error al obtener la imagen desde Google Drive:', error);
       res.status(500).send('Error fetching image');
     }
   });
