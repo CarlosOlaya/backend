@@ -1,0 +1,10 @@
+.idx
+build
+logs
+node_modules
+.env
+package-lock.json
+tests
+tmp
+bun.lockb
+.vscode
